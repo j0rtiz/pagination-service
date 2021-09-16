@@ -1,26 +1,29 @@
-module.exports = () => ({
+/**
+ * @param {Object} ctx - Dependency Injection
+ * @param {import('src/domain/enum/pagination/paginationEnum')} ctx.paginationEnum
+ */
+module.exports = ({ paginationEnum }) => ({
     buildResult: ({ page, pages }) => {
         page = Number(page);
         pages = Number(pages);
 
         let pagination = [];
-        const offset = 2;
-        const limit = 5;
+        const { OFFSET, LIMIT } = paginationEnum;
 
         for (let i = 1; i <= pages; i++) {
             pagination.push(i);
         }
 
         const index = pagination.indexOf(page);
-        let start = index - offset < 0 ? 0 : index - offset;
-        let end = index + offset > pages ? pages : page + offset;
+        let start = index - OFFSET < 0 ? 0 : index - OFFSET;
+        let end = index + OFFSET > pages ? pages : page + OFFSET;
 
         if (start === 0) {
-            end = start + limit;
+            end = start + LIMIT;
         }
 
-        if (pages - page < offset) {
-            start = pages - limit;
+        if (pages - page < OFFSET) {
+            start = pages - LIMIT;
         }
 
         pagination = pagination.slice(start, end).map((pg) => (pg === page ? `**${pg}**` : String(pg)));
