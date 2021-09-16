@@ -5,7 +5,6 @@ module.exports = {
     coverageDirectory: 'coverage',
     coveragePathIgnorePatterns: [
         'coverage',
-        'json-server-mock',
         'logs',
         'node_modules',
         'src/app/application',

@@ -23,7 +23,6 @@ module.exports = {
         'object-curly-spacing': [1, 'always'],
         'no-undef': 'off',
         'one-var': 'off',
-        camelcase: 'off',
-        'no-console': 'error'
+        camelcase: 'off'
     }
 };

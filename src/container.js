@@ -22,14 +22,12 @@ container
         [
             'src/app/operations/**/*.js',
             'src/app/services/**/*.js',
-            'src/app/strategies/**/*.js',
             'src/domain/enum/**/*.js',
             'src/domain/factories/**/*.js',
             'src/domain/schemas/**/*.js',
             'src/infra/error/**/*.js',
             'src/infra/integration/**/*.js',
             'src/infra/logging/**/*.js',
-            'src/interfaces/http/constants/**/*.js',
             'src/interfaces/http/controllers/**/*.js',
             'src/interfaces/http/middlewares/**/*.js',
             'src/interfaces/http/schemas/**/*.js'

@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+    pagination:
+        image: node:14.17.6-alpine
+        working_dir: /app
+        volumes:
+            - ./:/app
+        env_file: ./.env
+        ports:
+            - 3000:3000
+        command: ['npm', 'run', 'dev']

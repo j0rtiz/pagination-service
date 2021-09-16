@@ -7,22 +7,22 @@ const apiRouter = express.Router();
 
 /**
  * @param {Object} ctx - Dependency Injection
+ * @param {import('src/interfaces/http/controllers/pagination/paginationController')} ctx.paginationController
  * @param {import('src/interfaces/http/middlewares/requestLoggerMiddleware')} ctx.requestLoggerMiddleware
  * @param {import('src/interfaces/http/middlewares/healthCheckMiddleware')} ctx.healthCheckMiddleware
  * @param {import('src/interfaces/http/middlewares/httpErrorMiddleware')} ctx.httpErrorMiddleware
  * @param {import('src/interfaces/http/middlewares/notFoundMiddleware')} ctx.notFoundMiddleware
  * @param {import('src/interfaces/http/middlewares/swaggerMiddleware')} ctx.swaggerMiddleware
- * @param {import('src/interfaces/http/controllers/exampleController')} ctx.exampleController
  */
 module.exports = ({
     requestLoggerMiddleware,
     healthCheckMiddleware,
+    paginationController,
     httpErrorMiddleware,
     notFoundMiddleware,
-    swaggerMiddleware,
-    exampleController
+    swaggerMiddleware
 }) => {
-    apiRouter.use('/example', handle(exampleController.router));
+    apiRouter.use('/paginations', handle(paginationController.router));
     apiRouter.use('/healthcheck', handle(healthCheckMiddleware));
     apiRouter.use('/docs', swaggerMiddleware);
 

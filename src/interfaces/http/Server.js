@@ -7,7 +7,6 @@ const morgan = require('morgan');
  * @param {import('src/interfaces/http/router')} ctx.router
  * @param {import('src/infra/logging/logger')} ctx.logger
  * @param {import('src/container')} ctx.container
- * @param {import('config')} ctx.config
  */
 class Server {
     constructor({ router, logger, container, config }) {
@@ -26,6 +25,7 @@ class Server {
         const { APP_PORT, NODE_ENV } = process.env;
 
         return this.express.listen(APP_PORT, () => {
+            console.clear();
             this.logger.info(`Server started on port: ${APP_PORT} - Environment: ${NODE_ENV}`);
         });
     }

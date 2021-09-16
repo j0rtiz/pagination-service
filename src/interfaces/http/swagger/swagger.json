@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "Node Microservice Seed",
+        "title": "Pagination",
         "version": "1.0.0",
-        "description": "Service responsible for something"
+        "description": "Pagination Service"
     },
     "servers": [
         {
@@ -12,32 +12,24 @@
         }
     ],
     "externalDocs": {
-        "url": "https://example.com",
+        "url": "https://git.rarolabs.com.br/-/snippets/308",
         "description": "API reference"
     },
     "paths": {
-        "/example/{id}": {
-            "post": {
-                "tags": ["Example"],
-                "summary": "summary",
-                "description": "description",
-                "operationId": "example",
+        "/paginations": {
+            "get": {
+                "tags": ["Pagination"],
+                "summary": "This route creates paging as the data received",
+                "description": "This route creates paging as the data received",
+                "operationId": "pagination",
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/id"
+                        "$ref": "#/components/parameters/page"
+                    },
+                    {
+                        "$ref": "#/components/parameters/pages"
                     }
                 ],
-                "requestBody": {
-                    "description": "description",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#components/schemas/schema"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -50,7 +42,7 @@
                         }
                     },
                     "400": {
-                        "description": "Failed operation",
+                        "description": "Failed validation",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -65,37 +57,38 @@
     },
     "components": {
         "parameters": {
-            "id": {
-                "name": "id",
-                "in": "path",
-                "description": "Example ID",
+            "page": {
+                "name": "page",
+                "in": "query",
+                "description": "Current page",
                 "required": true,
                 "schema": {
-                    "type": "string"
+                    "type": "number"
+                }
+            },
+            "pages": {
+                "name": "pages",
+                "in": "query",
+                "description": "Total number of pages",
+                "required": true,
+                "schema": {
+                    "type": "number"
                 }
             }
         },
         "schemas": {
-            "schema": {
-                "title": "Schema",
-                "type": "object",
-                "properties": {
-                    "example": {
-                        "type": "string"
-                    }
-                },
-                "required": ["example"],
-                "additionalProperties": false
-            },
             "200": {
                 "title": "Success",
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "string"
+                    "pagination": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
-                "required": ["id"],
+                "required": ["pagination"],
                 "additionalProperties": false
             },
             "400": {
