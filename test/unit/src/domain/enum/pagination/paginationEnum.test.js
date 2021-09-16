@@ -1,12 +1,12 @@
-const Enum = require('src/domain/enum/example/exampleEnum')();
+const Enum = require('src/domain/enum/pagination/paginationEnum')();
 
-describe('domain :: enum :: example :: exampleEnum', () => {
+describe('domain :: enum :: pagination :: paginationEnum', () => {
     describe('#keys', () => {
         it('Should return the enum keys', () => {
             const keys = Enum.keys();
-            const data = ['EXAMPLE'];
+            const data = ['OFFSET', 'LIMIT'];
 
-            expect(keys.length).toEqual(1);
+            expect(keys.length).toEqual(2);
             expect(keys).toEqual(data);
         });
     });
@@ -14,9 +14,9 @@ describe('domain :: enum :: example :: exampleEnum', () => {
     describe('#values', () => {
         it('Should return the enum values', () => {
             const values = Enum.values();
-            const data = ['example'];
+            const data = [2, 5];
 
-            expect(values.length).toEqual(1);
+            expect(values.length).toEqual(2);
             expect(values).toEqual(data);
         });
     });
