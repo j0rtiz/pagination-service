@@ -22,11 +22,11 @@ class Server {
     }
 
     initServer() {
-        const { APP_PORT, NODE_ENV } = process.env;
+        const { APP_PORT, PORT, NODE_ENV } = process.env;
 
-        return this.express.listen(APP_PORT, () => {
+        return this.express.listen(APP_PORT ?? PORT, () => {
             console.clear();
-            this.logger.info(`Server started on port: ${APP_PORT} - Environment: ${NODE_ENV}`);
+            this.logger.info(`Server started on port: ${APP_PORT ?? PORT} - Environment: ${NODE_ENV}`);
         });
     }
 
