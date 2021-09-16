@@ -25,10 +25,26 @@ Serviço de paginação.
 
 ### Running Locally
 
+Criar um arquivo .env com base em .env.copy, setar as variáveis de ambiente e inicializar a aplicação.
+
+```shell
+$ npm run dev
+```
+
+### Running on Docker
+
 Inicializar docker-compose.yml disponível na raiz do projeto.
 
 ```shell
 $ docker-compose up -d
+```
+
+### Running unit tests
+
+Inicializar os testes unitários.
+
+```shell
+$ npm run test:unit
 ```
 
 ## Internal documentation
