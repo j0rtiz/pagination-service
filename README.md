@@ -2,12 +2,12 @@
 
 ## Overview
 
-Serviço responsável por fazer alguma coisa.
+Serviço de paginação.
 
 ## Main features
 
--   Receber um dado;
--   Retornar um dado.
+-   Receber a página atual e a quantidade de páginas;
+-   Retornar um array com paginação.
 
 ## Main frameworks
 
@@ -33,7 +33,7 @@ $ docker-compose up -d
 
 ## Internal documentation
 
-Não possui.
+https://git.rarolabs.com.br/-/snippets/308.
 
 ## Flow
 
@@ -68,7 +68,7 @@ Espaço em disco: 120mb
 
 ## Cluster
 
--   Quantidade de instancias padrão: 1
+-   Quantidade de instancias padrão: 1.
 
 ### Database
 
@@ -76,8 +76,8 @@ Não possui.
 
 ## If the service stops, what happens?
 
-1. Não poderá receber um dado;
-2. Não poderá retornar um dado.
+1. Não poderá receber a página atual e a quantidade de páginas;
+2. Não poderá retornar um array com paginação.
 
 ## If the service is down, what should be done?
 
@@ -85,5 +85,4 @@ Não possui.
 
 -   Identificar os logs;
 -   Reiniciar serviço;
--   Verificar se as dependências estão funcionando;
--   Identificar o log de outros serviços que podem estar causando erros.
+-   Verificar se as dependências estão funcionando.
