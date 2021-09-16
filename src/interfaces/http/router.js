@@ -30,7 +30,6 @@ module.exports = ({
         .use(express.json())
         .use(express.urlencoded({ extended: true }))
         .use(compression());
-    defaultRouter.use('/', handle(healthCheckMiddleware));
     defaultRouter.use('/api', apiRouter);
     defaultRouter.use('/*', notFoundMiddleware);
     defaultRouter.use(requestLoggerMiddleware);
