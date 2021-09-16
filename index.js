@@ -1,5 +1,5 @@
 (async function startApplication() {
-    const container = require('src/container');
+    const container = require('./src/container');
     const app = container.resolve('application');
 
     app.start().catch((error) => {

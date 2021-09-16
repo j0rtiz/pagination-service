@@ -1,12 +1,12 @@
 const awilix = require('awilix');
 const container = awilix.createContainer();
 
-const Config = require('config');
-const Application = require('src/app/application');
-const Exception = require('src/infra/error/exception');
-const Logger = require('src/infra/logging/logger');
-const Router = require('src/interfaces/http/router');
-const Server = require('src/interfaces/http/Server');
+const Config = require('../config');
+const Application = require('../src/app/application');
+const Exception = require('../src/infra/error/exception');
+const Logger = require('../src/infra/logging/logger');
+const Router = require('../src/interfaces/http/router');
+const Server = require('../src/interfaces/http/Server');
 
 container
     .register({
