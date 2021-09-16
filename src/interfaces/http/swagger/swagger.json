@@ -7,8 +7,12 @@
     },
     "servers": [
         {
+            "url": "https://localhost:3000/api",
+            "description": "HTTPS"
+        },
+        {
             "url": "http://localhost:3000/api",
-            "description": "Local"
+            "description": "HTTP"
         }
     ],
     "externalDocs": {
