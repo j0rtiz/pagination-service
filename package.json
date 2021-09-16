@@ -1,0 +1,67 @@
+{
+    "name": "node-microservice-seed",
+    "version": "1.0.0",
+    "description": "Service responsible for something",
+    "author": "j0rtiz@protonmail.ch",
+    "license": "MIT",
+    "main": "index.js",
+    "engines": {
+        "node": ">=14.17.x"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
+    "scripts": {
+        "dev": "cross-env NODE_PATH=. NODE_ENV=develop nodemon --legacy-watch -r dotenv/config --unhandled-rejections=strict",
+        "debug": "cross-env NODE_PATH=. NODE_ENV=develop nodemon --inspect --legacy-watch -r dotenv/config --unhandled-rejections=strict",
+        "start": "node .",
+        "test": "yarn test:unit && yarn test:feature",
+        "test:unit": "jest",
+        "test:coverage": "jest --coverage --collectCoverage",
+        "test:feature": "jest -c jest.features.config.js --setupFiles dotenv/config",
+        "lint": " eslint .",
+        "lint:fix": "eslint --fix .",
+        "format": "prettier -w ."
+    },
+    "prepare": "husky install",
+    "dependencies": {
+        "awilix": "^4.3.4",
+        "awilix-express": "^4.0.0",
+        "aws-sdk": "^2.931.0",
+        "axios": "^0.21.1",
+        "compression": "^1.7.4",
+        "cycle": "^1.0.3",
+        "express": "^4.17.1",
+        "express-async-handler": "^1.1.4",
+        "fejl": "^2.5.1",
+        "http-status": "^1.5.0",
+        "ioredis": "^4.27.6",
+        "ioredis-mock": "^5.6.0",
+        "joi": "^17.4.0",
+        "mongoose": "^5.12.14",
+        "morgan": "^1.10.0",
+        "sqs-consumer": "^5.5.0",
+        "swagger-ui-express": "^4.1.6",
+        "uuid": "^8.3.2",
+        "winston": "^3.3.3",
+        "winston-graylog2": "^2.1.2"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "dotenv": "^10.0.0",
+        "eslint": "^7.28.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^6.0.0",
+        "jest": "^27.0.4",
+        "nodemon": "^2.0.7",
+        "prettier": "^2.3.1",
+        "superagent-defaults": "^0.1.14",
+        "supertest": "^6.1.3"
+    }
+}

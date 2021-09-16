@@ -1,0 +1,40 @@
+{
+    "application": {
+        "serviceName": "Node Microservice Seed",
+        "shortServiceName": "NodeSeed",
+        "port": "$APP_PORT",
+        "logsPath": "$APP_LOGS_PATH",
+        "stackVisibleError": "$STACK_VISIBLE_ERROR"
+    },
+    "db": {
+        "username": "${TYPE}_MONGO_DB_USERNAME",
+        "password": "${TYPE}_MONGO_DB_PASSWORD",
+        "database": "${TYPE}_MONGO_DB_NAME",
+        "servers": "${TYPE}_MONGO_DB_SERVERS",
+        "dialect": "mongodb",
+        "options": {
+            "authSource": "admin",
+            "replicaSet": "${TYPE}_MONGO_DB_REPLICAS"
+        }
+    },
+    "integration": {
+        "rest": {
+            "example": {
+                "baseURL": "baseURL",
+                "timeout": 1000,
+                "externalCallMsg": "externalCallMsg"
+            }
+        },
+        "queues": {
+            "aws": {
+                "region": "$AWS_REGION",
+                "apiVersion": "$AWS_API_VERSION"
+            }
+        },
+        "graylog": {
+            "host": "$GRAYLOG_HOST",
+            "port": "$GRAYLOG_PORT",
+            "hostname": "node-microservice-seed"
+        }
+    }
+}

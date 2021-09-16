@@ -1,0 +1,126 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Node Microservice Seed",
+        "version": "1.0.0",
+        "description": "Service responsible for something"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api",
+            "description": "Local"
+        }
+    ],
+    "externalDocs": {
+        "url": "https://example.com",
+        "description": "API reference"
+    },
+    "paths": {
+        "/example/{id}": {
+            "post": {
+                "tags": ["Example"],
+                "summary": "summary",
+                "description": "description",
+                "operationId": "example",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "description",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/schema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/200"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#components/schemas/400"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "id": {
+                "name": "id",
+                "in": "path",
+                "description": "Example ID",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "schemas": {
+            "schema": {
+                "title": "Schema",
+                "type": "object",
+                "properties": {
+                    "example": {
+                        "type": "string"
+                    }
+                },
+                "required": ["example"],
+                "additionalProperties": false
+            },
+            "200": {
+                "title": "Success",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": ["id"],
+                "additionalProperties": false
+            },
+            "400": {
+                "title": "Error",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "statusCode": {
+                        "type": "number"
+                    },
+                    "details": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "stack": {
+                        "type": "string"
+                    }
+                },
+                "required": ["message", "statusCode"],
+                "additionalProperties": false
+            }
+        }
+    }
+}

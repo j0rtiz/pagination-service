@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    db:
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: admin
+        ports:
+            - 27017:27017
+
+    db-admin:
+        image: mongo-express
+        restart: always
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+            ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+            ME_CONFIG_MONGODB_SERVER: db
+        ports:
+            - 8081:8081
+        depends_on:
+            - db
+
+    api:
+        image: node:14-alpine
+        working_dir: /app
+        volumes:
+            - ./:/app
+        env_file: ./.env
+        ports:
+            - 3000:3000
+        depends_on:
+            - db
+        command: ['yarn', 'dev']
